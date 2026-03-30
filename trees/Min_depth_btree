@@ -1,0 +1,22 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        ld,rd=0,0
+        if root.left:
+            ld=self.minDepth(root.left)
+        if root.right:
+            rd=self.minDepth(root.right)
+        
+        if (rd!=0 and ld!=0): #if both child exists
+            return (1+ min(rd,ld))
+        else: #if only one child exists then ignore the null path n go check the actual leaf node
+            return 1+ max(rd,ld)
+        
+        
