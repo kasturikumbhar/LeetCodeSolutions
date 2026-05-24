@@ -3,9 +3,9 @@ class Solution:
         prev1=1 #step 0
         prev2=1 #step 1
         curr=0
-        if n <2:
-            return n
-        for i in range(1,n+1): #n+1 as we need to check till nth stair
+        if n==0 or n==1:
+            return 1
+        for i in range(1,n+1):
             if i <2:
                 continue
             curr=prev1+prev2
