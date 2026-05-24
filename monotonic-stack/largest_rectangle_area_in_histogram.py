@@ -8,7 +8,7 @@ class Solution:
             while stack and height <heights[stack[-1]]:
                 stacktop=stack.pop()
                 leftboundary= stack[-1] if stack else -1 ## leftboundary is prev block
-                area=heights[stacktop]* (i-stacktop-1) 
+                area=heights[stacktop]* (i-leftboundary-1) 
                 maxarea=max(maxarea,area)
             stack.append(i)
         return maxarea
